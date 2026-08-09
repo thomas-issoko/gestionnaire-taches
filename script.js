@@ -1,3 +1,6 @@
+// ========================================
+// PONT JS -> DOM (Semaine 8)
+// ========================================
 const sortie = document.querySelector("#sortie");
 
 function afficher(html) {
@@ -97,7 +100,7 @@ function obtenirTachesFiltrees() {
     return taches;
 }
 
-// =======================================
+// ========================================
 // FONCTIONS STATISTIQUES
 // ========================================
 
@@ -142,7 +145,7 @@ function afficherTaches() {
             
             let boutonTerminer;
             if (tache.terminee) {
-                boutonTerminer = '<button class="btn-terminer" onclick="terminerTache(' + tache.id + ')">Reactivar</button>';
+                boutonTerminer = '<button class="btn-terminer" onclick="terminerTache(' + tache.id + ')">Reactiver</button>';
             } else {
                 boutonTerminer = '<button class="btn-terminer" onclick="terminerTache(' + tache.id + ')">Terminer</button>';
             }
@@ -183,7 +186,7 @@ function afficherTaches() {
 }
 
 // ========================================
-// FONCTIONS DE FILTRE
+// FONCTION DE FILTRE (CORRIGEE AVEC onclick)
 // ========================================
 
 function changerFiltre(filtre) {
@@ -225,3 +228,19 @@ console.log("  - supprimerTache(id)");
 console.log("  - terminerTache(id)");
 console.log("  - ajouterTachesDemo()");
 console.log("  - changerFiltre('toutes'|'encours'|'terminees')");
+
+// ========================================
+// AJOUT DES GESTIONNAIRES D'EVENEMENTS (CORRECTION IMPORTANTE)
+// ========================================
+
+// Cette partie ajoute les événements click sur les boutons de filtre
+// Elle s'exécute après le chargement de la page
+document.addEventListener("DOMContentLoaded", function() {
+    const boutonsFiltre = document.querySelectorAll(".filtre-btn");
+    boutonsFiltre.forEach(function(btn) {
+        btn.addEventListener("click", function() {
+            const filtre = this.dataset.filtre;
+            changerFiltre(filtre);
+        });
+    });
+});
