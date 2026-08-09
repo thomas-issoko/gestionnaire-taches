@@ -1,5 +1,5 @@
 # Gestionnaire de Tâches - Tableau de Bord
-
+ https://gestionnaire-taches-one.vercel.app/
 ## 📌 Description
 
 Le Gestionnaire de Tâches est une application web interactive développée dans le cadre de la Phase 2 du programme Full Stack d'Akieni Academy. Ce projet de niveau Avancé (Semaine 8) permet de gérer efficacement une liste de tâches avec un système de priorité, de filtrage et un tableau de bord de statistiques en temps réel. L'application offre une interface utilisateur intuitive et responsive, permettant de visualiser, ajouter, supprimer, et suivre l'avancement des tâches grâce à des indicateurs de performance (KPI) et une barre de progression dynamique.
