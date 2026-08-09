@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de tâches </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="entete">
+        <h1>Gestionnaire de taches</h1>
+        
+    </header>
+
+    <main>
+        <!-- Section des indicateurs de performance (KPI) -->
+        <section class="kpi-section">
+            <div class="kpi-carte" id="kpi-total">
+                <span class="kpi-label">Total des taches</span>
+                <span class="kpi-valeur" id="total-taches">0</span>
+            </div>
+            <div class="kpi-carte" id="kpi-terminees">
+                <span class="kpi-label">Taches terminees</span>
+                <span class="kpi-valeur" id="terminees-taches">0</span>
+            </div>
+            <div class="kpi-carte" id="kpi-taux">
+                <span class="kpi-label">Taux de completion</span>
+                <span class="kpi-valeur" id="taux-completion">0%</span>
+                <div class="barre-progression">
+                    <div class="barre-remplie" id="barre-avancement" style="width: 0%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section des filtres -->
+        <section class="filtres-section">
+            <div class="filtres-boutons">
+                <button class="filtre-btn actif" data-filtre="toutes">Toutes</button>
+                <button class="filtre-btn" data-filtre="encours">En cours</button>
+                <button class="filtre-btn" data-filtre="terminees">Terminees</button>
+            </div>
+        </section>
+
+        <!-- Section de la liste des taches -->
+        <section class="liste-section">
+            <h2>Liste des taches</h2>
+            <div id="sortie">
+                <!-- Le JavaScript affiche les taches ici -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="pied">
+        <p>Thomas ISSOKO - 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

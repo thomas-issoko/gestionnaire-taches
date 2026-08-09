@@ -1,0 +1,391 @@
+/* ========================================
+   VARIABLES CSS
+   ======================================== */
+:root {
+    --vert: #10b981;
+    --rouge: #ef4444;
+    --orange: #f59e0b;
+    --texte: #1f2937;
+    --texte-clair: #6b7280;
+    --fond: #f9fafb;
+    --carte: #ffffff;
+    --haute: #ef4444;
+    --moyenne: #f59e0b;
+    --basse: #10b981;
+    --ombre: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --ombre-forte: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --rayon: 12px;
+    --espace: 1rem;
+    --police: system-ui, -apple-system, sans-serif;
+}
+
+/* ========================================
+   RESET & BASE
+   ======================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--police);
+    line-height: 1.6;
+    color: var(--texte);
+    background: var(--fond);
+    padding: var(--espace);
+    min-height: 100vh;
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+.entete {
+    max-width: 1200px;
+    margin: 0 auto 2rem auto;
+    padding: 1.5rem;
+    background: var(--carte);
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre);
+}
+
+.entete h1 {
+    font-size: 1.8rem;
+    color: var(--texte);
+    margin-bottom: 0.25rem;
+}
+
+.sous-titre {
+    color: var(--texte-clair);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   MAIN
+   ======================================== */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   KPI - INDICATEURS
+   ======================================== */
+.kpi-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-carte {
+    background: var(--carte);
+    border-radius: var(--rayon);
+    padding: 1.5rem;
+    box-shadow: var(--ombre);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-carte:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--ombre-forte);
+}
+
+.kpi-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--texte-clair);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-valeur {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--texte);
+}
+
+#kpi-total .kpi-valeur {
+    color: var(--texte);
+}
+
+#kpi-terminees .kpi-valeur {
+    color: var(--vert);
+}
+
+#kpi-taux .kpi-valeur {
+    color: var(--orange);
+}
+
+/* ========================================
+   BARRE DE PROGRESSION
+   ======================================== */
+.barre-progression {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    margin-top: 0.75rem;
+    overflow: hidden;
+}
+
+.barre-remplie {
+    height: 100%;
+    background: var(--vert);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+/* ========================================
+   FILTRES
+   ======================================== */
+.filtres-section {
+    margin-bottom: 2rem;
+}
+
+.filtres-boutons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    background: var(--carte);
+    padding: 1rem;
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre);
+}
+
+.filtre-btn {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #e5e7eb;
+    background: transparent;
+    color: var(--texte-clair);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filtre-btn:hover {
+    border-color: var(--texte-clair);
+    color: var(--texte);
+}
+
+.filtre-btn.actif {
+    border-color: var(--texte);
+    background: var(--texte);
+    color: white;
+}
+
+/* ========================================
+   LISTE DES TACHES
+   ======================================== */
+.liste-section {
+    background: var(--carte);
+    border-radius: var(--rayon);
+    padding: 1.5rem;
+    box-shadow: var(--ombre);
+}
+
+.liste-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--texte);
+}
+
+#sortie {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* ========================================
+   CARTE D'UNE TACHE
+   ======================================== */
+.tache-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background: var(--fond);
+    border-radius: 8px;
+    border-left: 4px solid var(--texte-clair);
+    transition: all 0.3s ease;
+    gap: 1rem;
+}
+
+.tache-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--ombre);
+}
+
+.tache-item.priorite-haute {
+    border-left-color: var(--haute);
+}
+
+.tache-item.priorite-moyenne {
+    border-left-color: var(--moyenne);
+}
+
+.tache-item.priorite-basse {
+    border-left-color: var(--basse);
+}
+
+.tache-infos {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.tache-titre {
+    font-weight: 500;
+    color: var(--texte);
+    word-break: break-word;
+}
+
+.tache-priorite {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.tache-item.priorite-haute .tache-priorite {
+    background: var(--haute);
+}
+
+.tache-item.priorite-moyenne .tache-priorite {
+    background: var(--moyenne);
+}
+
+.tache-item.priorite-basse .tache-priorite {
+    background: var(--basse);
+}
+
+.tache-item.terminee .tache-titre {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.tache-item.terminee {
+    opacity: 0.7;
+}
+
+.tache-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.tache-actions button {
+    padding: 0.3rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-terminer {
+    background: var(--vert);
+    color: white;
+}
+
+.btn-terminer:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+.btn-supprimer {
+    background: var(--rouge);
+    color: white;
+}
+
+.btn-supprimer:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   ETAT VIDE
+   ======================================== */
+.etat-vide {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--texte-clair);
+}
+
+.etat-vide .emoji {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE-FIRST
+   ======================================== */
+@media (min-width: 768px) {
+    body {
+        padding: 2rem;
+    }
+    
+    .entete h1 {
+        font-size: 2.2rem;
+    }
+    
+    .kpi-section {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .kpi-valeur {
+        font-size: 3rem;
+    }
+    
+    .filtres-boutons {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .entete {
+        padding: 2rem;
+    }
+    
+    .entete h1 {
+        font-size: 2.5rem;
+    }
+    
+    .liste-section {
+        padding: 2rem;
+    }
+    
+    .tache-item {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITE
+   ======================================== */
+button:focus-visible,
+.filtre-btn:focus-visible {
+    outline: 3px solid var(--texte);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
